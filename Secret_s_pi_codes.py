@@ -15,6 +15,19 @@ import sys
 #  2. 2D_INTEGER_ARRAY queries
 #
 
+
+def findSecrets1(arr, queries):
+    result=[]
+    n=len(arr)
+    for i, j in queries:
+        product=1
+        for index in range(i, j+1):
+            product *=arr[index]
+        result.append(product)
+    return result
+
+
+
 def findSecrets(arr, queries):
     # Write your code here
     n=len(arr)
@@ -22,11 +35,12 @@ def findSecrets(arr, queries):
     result=1
     if q <1 or q>10**5:
         return "Invald Number of Queries"
-    if n<2 or n>10^5:
+    if n<2 or n>10**5:
         return "Invalid amount of values for arr"
     for i in queries:
         result *=arr[i]
     return result
+pass
 
 
 
