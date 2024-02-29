@@ -22,6 +22,20 @@ def findSecrets1(arr, queries):
     for i, j in queries:
         product=1
         for index in range(i, j+1):
+            if i==(j+1):
+                product.append(i)
+            else:
+                product *=arr[index]
+            result.append(product)
+    return result
+
+
+def findSecrets1(arr, queries):
+    result=[]
+    n=len(arr)
+    for i, j in queries:
+        product=1
+        for index in range(i, j+1):
             product *=arr[index]
         result.append(product)
     return result
