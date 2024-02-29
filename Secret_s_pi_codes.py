@@ -6,7 +6,7 @@ import random
 import re
 import sys
 
-#
+
 # Complete the 'findSecrets' function below.
 #
 # The function is expected to return an INTEGER_ARRAY.
@@ -15,29 +15,23 @@ import sys
 #  2. 2D_INTEGER_ARRAY queries
 #
 
-def find_s(arr):
-    n=len(arr)
-    for i in arr:
-        for j in range(i, n+1):
-            pass
-    
-
-
-
 def findSecrets(arr, queries):
     # Write your code here
     n=len(arr)
+    q=len(queries)
     result=1
-    if queries <1 or queries>10**5:
+    if q <1 or q>10**5:
         return "Invald Number of Queries"
     if n<2 or n>10^5:
         return "Invalid amount of values for arr"
-    for i in arr:
+    for i in queries:
         result *=arr[i]
     return result
 
 
-if __name__ == '__main__':
+
+
+"""if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     first_multiple_input = input().rstrip().split()
@@ -59,3 +53,4 @@ if __name__ == '__main__':
     fptr.write('\n')
 
     fptr.close()
+"""
