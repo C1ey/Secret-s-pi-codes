@@ -35,10 +35,13 @@ def findSecrets1(arr, queries):
     result=[]
     n=len(arr)
     for i, j in queries:
-        product=1
-        for index in range(i, j+1):
-            product *=arr[index-1]
-        result.append(product)
+        if i==(j+1):
+            result.append(i)
+        else:
+            product=1
+            for index in range(i, j+1):
+                product *=arr[index-1]
+            result.append(product)
     return result
 
 
