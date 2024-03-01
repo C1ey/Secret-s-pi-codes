@@ -17,30 +17,23 @@ import sys
 
 
 def findSecrets(arr, queries):
-    result=[]
-    n=len(arr)
-    if n<2 or n>10**5:
-            return "Invalid Lenght for arr"
-    if not isinstance(q, int) and (1<=q<=10**5):
-            return "Invalid Values for q"
+    result = []
+    n = len(arr)
     
-    memo={}
-        
+    if n < 2 or n > 10**5:
+        return "Invalid Length for arr"
+    
+    prefix_products = [1] * (n + 1)
+    for i in range(1, n + 1):
+        prefix_products[i] = (prefix_products[i - 1] * arr[i - 1]) % (10**9 + 7)
+    
     for i, j in queries:
-        if not isinstance(i, int) and (1<=i<=j):
-            return "Invalid Value for i"
-        if not isinstance (j, int) and (i<=j<=n):
-            return "Invalid Values for j"
+        if not (1 <= i <= j <= n):
+            return "Invalid values for i or j"
         
-        if (i, j) in memo:
-            result.append(memo[(i,j)])
-        else:
-            product = 1
-            for element in arr[i-1:j]:
-                product *=element%((10**9)+7)%((10**9)+7)
-                product %=((10**9)+7)
-            memo[(i,j)]=product
-            result.append(product)
+        product = (prefix_products[j] * pow(prefix_products[i - 1], -1, (10**9 + 7))) % (10**9 + 7)
+        result.append(product)
+    
     return result
 
 
