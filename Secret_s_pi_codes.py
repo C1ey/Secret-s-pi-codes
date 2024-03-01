@@ -16,64 +16,26 @@ import sys
 #
 
 
-def findSecrets2(arr, queries):
+def findSecrets(arr, queries):
     result=[]
     n=len(arr)
     for i, j in queries:
-        product=1
-        for index in range(i, j+1):
-            if i==(j+1):
-                result.append(i)
-                #return product
-            else:
-                product *=arr[index]
-            result.append(product)
-    return result
-
-
-def findSecrets1(arr, queries):
-    result=[]
-    n=len(arr)
-    for i, j in queries:
-        if i==(j+1):
+        if not isinstance(i, int) and (1<i<j):
+            return "Invalid Value for i"
+        if not isinstance (j, int) and (i<j<n):
+            return "Invalid Values for j"
+        if n<2 or n>10**5:
+            return "Invalid Lenght for arr"
+        if not isinstance(q, int) and (1<q<10**5):
+            return "Invalid Values for q"
+        if i==(i+1):
             result.append(i)
         else:
             product=1
             for index in range(i, j+1):
                 product *=arr[index-1]
-            result.append(product)
+            result.append(product%((10**9)+7)%((10**9)+7))
     return result
-
-
-def findSecrets3(arr, queries):
-    result=[]
-    n=len(arr)
-    for i, j in queries:
-        product=1
-        for index in range(i, j+1):
-            if i==(j+1):
-                product.append(i)
-            else:
-                product *=arr[index]
-            result.append(product)
-    return result
-
-
-def findSecrets(arr, queries):
-    # Write your code here
-    n=len(arr)
-    q=len(queries)
-    result=1
-    if q <1 or q>10**5:
-        return "Invald Number of Queries"
-    if n<2 or n>10**5:
-        return "Invalid amount of values for arr"
-    for i in queries:
-        result *=arr[i]
-    return result
-pass
-
-
 
 
 """if __name__ == '__main__':
