@@ -16,14 +16,15 @@ import sys
 #
 
 
-def findSecrets1(arr, queries):
+def findSecrets2(arr, queries):
     result=[]
     n=len(arr)
     for i, j in queries:
         product=1
         for index in range(i, j+1):
             if i==(j+1):
-                product.append(i)
+                result.append(i)
+                #return product
             else:
                 product *=arr[index]
             result.append(product)
@@ -36,10 +37,23 @@ def findSecrets1(arr, queries):
     for i, j in queries:
         product=1
         for index in range(i, j+1):
-            product *=arr[index]
+            product *=arr[index-1]
         result.append(product)
     return result
 
+
+def findSecrets3(arr, queries):
+    result=[]
+    n=len(arr)
+    for i, j in queries:
+        product=1
+        for index in range(i, j+1):
+            if i==(j+1):
+                product.append(i)
+            else:
+                product *=arr[index]
+            result.append(product)
+    return result
 
 
 def findSecrets(arr, queries):
