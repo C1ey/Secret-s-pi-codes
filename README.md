@@ -4,7 +4,7 @@ Red Ribbon Corp has deployed a network of android spies, disguised as humans, to
 When in the field, spies that need to communicate first send each other a pair of integers i and j
  and  to generate a secret key,s , that will be used to encrypt messages for a session of exchanges. The secret key,s, is defined as the product of all the numbers in the sequence from index i to j index , reduced modulo 10^9 +7. That is,
 
-s=(∏ from k=i to j​ (ak)​)mod(109+7)
+s=(∏ from k=i to j​ (ak)​)mod(10^9+7)
 
 Since the channels available for communication between the spies may not be secure, the values of i and j are readily available for eavesdroppers to obtain. But the secret key,s , encoded by i and j
 
