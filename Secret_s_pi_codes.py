@@ -19,23 +19,23 @@ import sys
 def findSecrets(arr, queries):
     result=[]
     n=len(arr)
-    for i, j in queries:
-        if not isinstance(i, int) and (1<i<j):
-            return "Invalid Value for i"
-        if not isinstance (j, int) and (i<j<n):
-            return "Invalid Values for j"
-        if n<2 or n>10**5:
+    if n<2 or n>10**5:
             return "Invalid Lenght for arr"
-        if not isinstance(q, int) and (1<q<10**5):
+    if not isinstance(q, int) and (1<=q<=10**5):
             return "Invalid Values for q"
+    for i, j in queries:
+        if not isinstance(i, int) and (1<=i<=j):
+            return "Invalid Value for i"
+        if not isinstance (j, int) and (i<=j<=n):
+            return "Invalid Values for j"
         if i==(i+1):
             result.append(i)
         else:
             product=1
             for index in range(i, j+1):
                 product *=arr[index-1]
-            result.append(product%((10**9)+7)%((10**9)+7))
-    return result
+            result.append(product)
+    return ([x %((10**9)+7)%((10**9)+7) for x in result])
 
 
 """if __name__ == '__main__':
