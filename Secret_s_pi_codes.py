@@ -23,19 +23,25 @@ def findSecrets(arr, queries):
             return "Invalid Lenght for arr"
     if not isinstance(q, int) and (1<=q<=10**5):
             return "Invalid Values for q"
+    
+    memo={}
+        
     for i, j in queries:
         if not isinstance(i, int) and (1<=i<=j):
             return "Invalid Value for i"
         if not isinstance (j, int) and (i<=j<=n):
             return "Invalid Values for j"
-        if i==(i+1):
-            result.append(i)
+        
+        if (i, j) in memo:
+            result.append(memo[(i,j)])
         else:
-            product=1
-            for index in range(i, j+1):
-                product *=arr[index-1]
+            product = 1
+            for element in arr[i-1:j]:
+                product *=element%((10**9)+7)%((10**9)+7)
+                product %=((10**9)+7)
+            memo[(i,j)]=product
             result.append(product)
-    return ([x %((10**9)+7)%((10**9)+7) for x in result])
+    return result
 
 
 """if __name__ == '__main__':
